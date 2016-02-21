@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class TableDetail: UIViewController, UITextFieldDelegate {
+class TableDetail: UIViewController, UITextFieldDelegate{
     
    
     var affiliation: String?
@@ -21,6 +21,8 @@ class TableDetail: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var Label: UIButton!
 
+    
+    @IBOutlet weak var EmailValue: UILabel!
     
     override func viewDidLoad() {
         
@@ -37,11 +39,7 @@ class TableDetail: UIViewController, UITextFieldDelegate {
         
         
         if var edit = affiliation{
-            
-        //
             items[index!] = myTextField.text!
-            
-            
             
         }
         else{
@@ -75,7 +73,43 @@ class TableDetail: UIViewController, UITextFieldDelegate {
     }
    
 
+   
 
+    @IBAction func MapAction(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Simple Button Alert", message: "Message", preferredStyle: .Alert)
+        
+        alertController.addTextFieldWithConfigurationHandler(
+            {
+                (textField: UITextField!) in
+                textField.placeholder = "Enter email address"
+        })
+        
+        let OkButton = UIAlertAction(title: "Ok", style: .Default) {  (action) in
+            
+            if let textFields = alertController.textFields{
+                let textFieldArray = textFields as [UITextField]
+                let emailaddress = textFieldArray[0].text
+                self.EmailValue.text = emailaddress
+                print(emailaddress)
+                
+            }
+            
+        }
+        
+        alertController.addAction(OkButton)
+        
+        let CancelButton = UIAlertAction(title: "Cancel", style: .Default){(action) in
+            print(action)
+        }
+        alertController.addAction(CancelButton)
+        
+        
+        
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
 
 
 

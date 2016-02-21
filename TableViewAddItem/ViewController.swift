@@ -8,7 +8,14 @@
 
 import UIKit
 
+
 var items:[String] = ["We","Heart","Swift","asdfasf","We","Heart","Swift","asdfasf"]
+
+var item:[Objects] = []
+
+
+
+
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

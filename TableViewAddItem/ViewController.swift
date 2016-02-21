@@ -9,12 +9,9 @@
 import UIKit
 
 
-var items:[String] = ["We","Heart","Swift","asdfasf","We","Heart","Swift","asdfasf"]
+//var items:[String] = ["We","Heart","Swift","asdfasf","We","Heart","Swift","asdfasf"]
 
-var item:[Objects] = []
-
-
-
+var items = [Objects]()
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -56,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = myTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
         let row = indexPath.row
-        cell.textLabel?.text = items[row]
+        cell.textLabel?.text = items[row].text
         
         return cell
     }
@@ -107,8 +104,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
 
             if let indexPath = self.myTableView.indexPathForSelectedRow{
-                let affiliation = items[indexPath.row]
-                print(affiliation)
+                let affiliation = items[indexPath.row].text
+                
                 destination.affiliation = affiliation
                 destination.index = indexPath.row
             }

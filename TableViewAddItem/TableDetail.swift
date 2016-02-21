@@ -39,12 +39,14 @@ class TableDetail: UIViewController, UITextFieldDelegate{
         
         
         if var edit = affiliation{
-            items[index!] = myTextField.text!
+            
+            //items[index!] = myTextField.text!
+            items[index!] = Objects(text: myTextField.text!)
             
         }
         else{
         if let toAdd=myTextField.text{
-        items.append(toAdd)
+        items.append(Objects(text: myTextField.text!))
         
         	
         }
